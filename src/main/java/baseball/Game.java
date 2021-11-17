@@ -1,5 +1,6 @@
 package baseball;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import utils.RandomUtils;
 
@@ -11,7 +12,10 @@ public class Game {
 		boolean flag = true;
 		while(true){
 			String playerNum = getPlayerNumber(scanner);
-			matchNumbers(randomNum,playerNum);
+			int[] strikeBall = matchNumbers(randomNum,playerNum);
+//			checkGoStop()
+			//test
+			System.out.println(Arrays.toString(strikeBall));
 		}
 	}
 
@@ -80,7 +84,7 @@ public class Game {
 		return true;
 	}
 
-	public static void matchNumbers(String randomNum, String playerNum){
+	public static int[] matchNumbers(String randomNum, String playerNum){
 		int strike = 0;
 		int ball = 0;
 		for (int i=0; i < 3; i++){
@@ -93,10 +97,13 @@ public class Game {
 				++ball;
 			}
 		}
+		int[] strikeBall = {strike, ball};
 
 		// test
 		System.out.println("strike: " + strike);
 		System.out.println("ball: " + ball);
+
+		return strikeBall;
 	}
 
 	public static boolean checkBall(String randomNum, char playerCh){
