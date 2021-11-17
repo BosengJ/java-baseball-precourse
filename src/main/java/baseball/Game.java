@@ -5,8 +5,35 @@ import utils.RandomUtils;
 
 public class Game {
 	public static void playGame(Scanner scanner){
-		String playerNum = getPlayerNumber(scanner);
 		String RandomNum = getRandomNumber();
+		boolean flag = true;
+		while(true){
+			String playerNum = getPlayerNumber(scanner);
+			matchNumbers(RandomNum,playerNum);
+		}
+	}
+
+	public static String getRandomNumber(){
+		String randomNum = new String();
+		boolean flag = true;
+		while(flag){
+			randomNum = "";
+			for (int i=0; i < 3; i++){
+				int number = utils.RandomUtils.nextInt(1,9);
+				randomNum += Integer.toString(number);
+			}
+			if (checkRandomNumer(randomNum)){
+				flag = false;
+			}
+		}
+		return randomNum;
+	}
+
+	public static boolean checkRandomNumer(String randomNum){
+		if((randomNum.charAt(0) == randomNum.charAt(1)) || (randomNum.charAt(1) == randomNum.charAt(2)) || (randomNum.charAt(0) == randomNum.charAt(2))){
+			return false;
+		}
+		return true;
 	}
 
 	public static String getPlayerNumber(Scanner scanner){
@@ -51,27 +78,9 @@ public class Game {
 		return true;
 	}
 
-	public static String getRandomNumber(){
-		String randomNum = new String();
-		boolean flag = true;
-		while(flag){
-			randomNum = "";
-			for (int i=0; i < 3; i++){
-				int number = utils.RandomUtils.nextInt(1,9);
-				randomNum += Integer.toString(number);
-			}
-			if (checkRandomNumer(randomNum)){
-				flag = false;
-			}
-		}
-		return randomNum;
-	}
 
-	public static boolean checkRandomNumer(String randomNum){
-		if((randomNum.charAt(0) == randomNum.charAt(1)) || (randomNum.charAt(1) == randomNum.charAt(2)) || (randomNum.charAt(0) == randomNum.charAt(2))){
-			return false;
+			}
 		}
-		return true;
 	}
 
 
