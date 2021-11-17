@@ -114,5 +114,15 @@ public class Game {
 		return false;
 	}
 
+	public static boolean checkGoStop(int strike, int ball, Scanner scanner){
+		if(strike == 3){
+			System.out.println("3스트라이크");
+			if(askGameReplay(scanner) == false){
+				return false;
+			}
+		}
+		return true;
+	}
+
 
 }
