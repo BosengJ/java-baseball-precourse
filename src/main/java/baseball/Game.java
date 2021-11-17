@@ -5,11 +5,13 @@ import utils.RandomUtils;
 
 public class Game {
 	public static void playGame(Scanner scanner){
-		String RandomNum = getRandomNumber();
+		String randomNum = getRandomNumber();
+		// test
+		System.out.println(randomNum);
 		boolean flag = true;
 		while(true){
 			String playerNum = getPlayerNumber(scanner);
-			matchNumbers(RandomNum,playerNum);
+			matchNumbers(randomNum,playerNum);
 		}
 	}
 
@@ -78,9 +80,22 @@ public class Game {
 		return true;
 	}
 
-
+	public static void matchNumbers(String randomNum, String playerNum){
+		int strike = 0;
+		int ball = 0;
+		for (int i=0; i < 3; i++){
+			char ch = randomNum.charAt(i);
+			if (ch == playerNum.charAt(i)){
+				++strike;
+			}
+			else if (randomNum.contains(ch)){
+				++ball;
 			}
 		}
+
+		// test
+		System.out.println("strike: " + strike);
+		System.out.println("ball: " + ball);
 	}
 
 
