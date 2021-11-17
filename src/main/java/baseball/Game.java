@@ -84,11 +84,12 @@ public class Game {
 		int strike = 0;
 		int ball = 0;
 		for (int i=0; i < 3; i++){
-			char ch = randomNum.charAt(i);
-			if (ch == playerNum.charAt(i)){
+			char randomCh = randomNum.charAt(i);
+			char playerCh = playerNum.charAt(i);
+			if (randomCh == playerCh){
 				++strike;
 			}
-			else if (randomNum.contains(ch)){
+			else if (checkBall(randomNum,playerCh)){
 				++ball;
 			}
 		}
@@ -96,6 +97,15 @@ public class Game {
 		// test
 		System.out.println("strike: " + strike);
 		System.out.println("ball: " + ball);
+	}
+
+	public static boolean checkBall(String randomNum, char playerCh){
+		for (int i=0; i < 3; i++){
+			if (randomNum.charAt(i) == playerCh){
+				return true;
+			}
+		}
+		return false;
 	}
 
 
