@@ -10,12 +10,16 @@ public class Game {
 		// test
 		System.out.println(randomNum);
 		boolean flag = true;
-		while(true){
+		while(flag){
 			String playerNum = getPlayerNumber(scanner);
 			int[] strikeBall = matchNumbers(randomNum,playerNum);
-//			checkGoStop()
+			int strike = strikeBall[0];
+			int ball = strikeBall[1];
+			if (checkGoStop(strike,ball,scanner) == false){
+				flag = false;
+			}
 			//test
-			System.out.println(Arrays.toString(strikeBall));
+//			System.out.println(Arrays.toString(strikeBall));
 		}
 	}
 
@@ -98,11 +102,6 @@ public class Game {
 			}
 		}
 		int[] strikeBall = {strike, ball};
-
-		// test
-		System.out.println("strike: " + strike);
-		System.out.println("ball: " + ball);
-
 		return strikeBall;
 	}
 
