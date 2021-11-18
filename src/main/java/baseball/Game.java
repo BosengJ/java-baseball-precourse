@@ -13,8 +13,8 @@ public class Game {
 		while(flag){
 			String playerNum = getPlayerNumber(scanner);
 			int[] strikeBall = matchNumbers(randomNum,playerNum);
-			int strike = strikeBall[0];
-			int ball = strikeBall[1];
+			printGameResult(strikeBall);
+
 			//test
 //			System.out.println(Arrays.toString(strikeBall));
 		}
@@ -110,7 +110,21 @@ public class Game {
 		}
 		return false;
 	}
-	
+
+	public static void printGameResult(int[] strikeBall){
+		int strike = strikeBall[0];
+		int ball = strikeBall[1];
+		if (ball > 0){
+			System.out.print(ball + "볼 ");
+		}
+		if (strike > 0){
+			System.out.println(strike + "스트라이크");
+		}
+		if ((ball == 0) && (strike == 0)){
+			System.out.println("낫싱");
+		}
+	}
+
 
 
 }
