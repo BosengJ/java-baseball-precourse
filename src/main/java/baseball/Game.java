@@ -10,7 +10,7 @@ public class Game {
 		while(flag){
 			String randomNum = getRandomNumber();
 			// test
-			System.out.println(randomNum);
+			// System.out.println(randomNum);
 			String playerNum = getPlayerNumber(scanner);
 			int[] strikeBall = matchNumbers(randomNum,playerNum);
 			printGameResult(strikeBall);
@@ -18,7 +18,6 @@ public class Game {
 			if (strike == 3){
 				flag = askReplayOrStop(scanner);
 			}
-			//test
 		}
 	}
 
@@ -88,8 +87,7 @@ public class Game {
 	}
 
 	public static int[] matchNumbers(String randomNum, String playerNum){
-		int strike = 0;
-		int ball = 0;
+		int strike = 0; int ball = 0;
 		for (int i=0; i < 3; i++){
 			char randomCh = randomNum.charAt(i);
 			char playerCh = playerNum.charAt(i);
