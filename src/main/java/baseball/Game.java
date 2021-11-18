@@ -14,9 +14,12 @@ public class Game {
 			String playerNum = getPlayerNumber(scanner);
 			int[] strikeBall = matchNumbers(randomNum,playerNum);
 			printGameResult(strikeBall);
+			int strike = strikeBall[0];
+			if (strike == 3){
+				flag = askReplayOrStop(scanner);
+			}
 
 			//test
-//			System.out.println(Arrays.toString(strikeBall));
 		}
 	}
 
@@ -112,8 +115,7 @@ public class Game {
 	}
 
 	public static void printGameResult(int[] strikeBall){
-		int strike = strikeBall[0];
-		int ball = strikeBall[1];
+		int strike = strikeBall[0]; int ball = strikeBall[1];
 		if (ball > 0){
 			System.out.print(ball + "볼 ");
 		}
@@ -125,6 +127,23 @@ public class Game {
 		}
 	}
 
-
+	// flag = askReplayOrStop(scanner);
+	public static boolean askReplayOrStop(Scanner scanner){
+		System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+		int playStop;
+		while(true){
+			System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+			String inputData = scanner.nextLine();
+			playStop = Integer.parseInt(inputData);
+			if(playStop == 1 || playStop == 2){
+				break;
+			}
+			System.out.println("[ERROR] 1 또는 2만 입력 가능합니다.");
+		}
+		if (playStop == 1){
+			return true;
+		}
+		return false;
+	}
 
 }
