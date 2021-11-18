@@ -6,11 +6,11 @@ import utils.RandomUtils;
 
 public class Game {
 	public static void playGame(Scanner scanner){
-		String randomNum = getRandomNumber();
-		// test
-		System.out.println(randomNum);
 		boolean flag = true;
 		while(flag){
+			String randomNum = getRandomNumber();
+			// test
+			System.out.println(randomNum);
 			String playerNum = getPlayerNumber(scanner);
 			int[] strikeBall = matchNumbers(randomNum,playerNum);
 			printGameResult(strikeBall);
@@ -18,7 +18,6 @@ public class Game {
 			if (strike == 3){
 				flag = askReplayOrStop(scanner);
 			}
-
 			//test
 		}
 	}
@@ -127,7 +126,6 @@ public class Game {
 		}
 	}
 
-	// flag = askReplayOrStop(scanner);
 	public static boolean askReplayOrStop(Scanner scanner){
 		System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
 		int playStop;
@@ -145,5 +143,4 @@ public class Game {
 		}
 		return false;
 	}
-
 }
